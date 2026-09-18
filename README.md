@@ -27,10 +27,10 @@ Supporting directories: `deployment/` for future deployment configuration, `docs
 | --- | --- |
 | Server hostname | tasktrack-server |
 | Operating system | Ubuntu Server 24.04 LTS |
-| Server IP | 192.168.110.15/20 |
-| Network | 192.168.96.0/20 |
-| Subnet mask | 255.255.240.0 |
-| Gateway | 192.168.100.10 |
+| Server IP | 192.X.X.X/X |
+| Network | 192.X.X.X/X |
+| Subnet mask | X.X.X.X |
+| Gateway | X.X.X.X |
 | Timezone | Asia/Karachi |
 | Server IP assignment | DHCP reservation / MAC binding |
 | Workspace | /opt/pakwheels-tasktrack |
