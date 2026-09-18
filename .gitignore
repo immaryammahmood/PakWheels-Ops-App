@@ -1,0 +1,76 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# JavaScript / TypeScript outputs and caches
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+.nyc_output/
+.turbo/
+.cache/
+*.tsbuildinfo
+
+# Android / Gradle local state and generated artifacts
+.gradle/
+.kotlin/
+.externalNativeBuild/
+.cxx/
+local.properties
+*.apk
+*.aab
+*.ap_
+*.hprof
+
+# Private runtime data
+/storage/private/evidence/*
+/database/data/
+
+# Logs and temporary files
+logs/
+*.log
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+
+# IDE-generated files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# OS-generated files
+.DS_Store
+._*
+.Spotlight-V100/
+.Trashes/
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Test reports and Python helper caches
+playwright-report/
+test-results/
+__pycache__/
+*.py[cod]

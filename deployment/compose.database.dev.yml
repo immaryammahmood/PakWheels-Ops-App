@@ -1,0 +1,35 @@
+# Development configuration only; starting services requires separate approval.
+# Approved exact release tag. No image digest has been verified yet.
+# POSTGRES_USER is a bootstrap administrator, not the future API identity.
+name: pakwheels-tasktrack-db-dev
+
+services:
+  postgres:
+    image: postgres:18.6-bookworm@sha256:1c59e2c3c818eaa0f0628f695b36e7c9e362d6b219b36a54a32df645cbd7e1af
+    restart: "no"
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:?Supply POSTGRES_DB externally}"
+      POSTGRES_USER: "${POSTGRES_USER:?Supply POSTGRES_USER externally}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Supply POSTGRES_PASSWORD externally}"
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256 --auth-local=scram-sha-256"
+      TZ: UTC
+      PGTZ: UTC
+    ports:
+      - target: 5432
+        published: "5432"
+        host_ip: 127.0.0.1
+        protocol: tcp
+    volumes:
+      # PostgreSQL 18 uses a version-specific PGDATA below this mount.
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      # Readiness only; pg_isready does not verify successful authentication.
+      test: ["CMD-SHELL", 'pg_isready -q -h 127.0.0.1 -p 5432 -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  postgres_data:
+
