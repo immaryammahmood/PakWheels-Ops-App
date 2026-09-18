@@ -59,4 +59,4 @@ These environment values are user-confirmed, not independently inspected during 
 - [Toolchain](docs/toolchain.md)
 
 `.env.example` remains an earlier placeholder template and does not configure or start a service. The API reads process environment variables; see the [actual configuration names and safe defaults](docs/backend-foundation.md#configuration-and-time). Phase 1C is closed; the next implementation phase requires separate authorization.
-# PakWheels-Ops-App
+
